@@ -18,7 +18,7 @@ const Contents = () => {
                     </p>
                 </div>
             </div>
-            <div className='flex mx-2 items-center justify-center text-center'>
+            <div className='grid md:flex mx-2 items-center justify-center text-center'>
                 <div className='w-1/3'>
                     suhu
                 </div>
