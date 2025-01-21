@@ -13,7 +13,7 @@ export default function Home() {
             width={70}
             height={79.5}
           />
-          <h1>
+          <h1 className="text-black">
             S-Bio-S
           </h1>
         </div>
