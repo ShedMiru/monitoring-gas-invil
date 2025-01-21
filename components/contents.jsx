@@ -42,8 +42,8 @@ const Contents = () => {
             label: 'Kelembaban',
             value: sensorData.kelembaban,
             unit: '%',
-            imgSource: '/Logo ph.png',
-            imgSize: '120',
+            imgSource: '/awan_black.png',
+            imgSize: '200',
         }
     ]
     return (
