@@ -59,7 +59,7 @@ const Contents = () => {
                     </p>
                 </div>
             </div>
-            <div className='grid gap-1 items-center sm:gap-0 sm:flex mx-2 sm:items-center sm:justify-center text-center'>
+            <div className='grid gap-2 pt-5 items-center h-44 sm:h-full sm:gap-0 sm:pt-0 sm:flex mx-2 sm:items-center sm:justify-center text-center'>
                 {data.map((item, index) => (
                     <div
                         key={index}
