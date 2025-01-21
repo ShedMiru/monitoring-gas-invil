@@ -6,7 +6,7 @@ export default function Kartu({ label, value, unit, imgSource, imgSize }) {
     <Card className="flex items-center justify-center border-4 border-[#355F2E] rounded-3xl bg-[#A9E06D]">
       {/* desktop */}
       <div className="hidden items-center w-4/5 sm:grid sm:grid-rows-[35px_115px_1fr] gap-1">
-        <div className="flex justify-center text-3xl font-bold" >
+        <div className="flex justify-center text-3xl font-bold text-black" >
           <h1>
             {label}
           </h1>
@@ -42,7 +42,7 @@ export default function Kartu({ label, value, unit, imgSource, imgSize }) {
           </div>
         </div>
         <div className="grid w-3/6">
-          <div className="flex text-2xl font-bold" >
+          <div className="flex text-2xl font-bold text-black" >
             <h1>
               {label}
             </h1>

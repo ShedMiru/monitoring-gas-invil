@@ -52,7 +52,7 @@ const Contents = () => {
                 <div className='flex w-5/12 justify-center'>
                     <KartuGas percentage={sensorData.gas} />
                 </div>
-                <div className='grid px-10 w-7/12 justify-start'>
+                <div className='grid px-10 w-7/12 justify-start text-black'>
                     <h2 className='text-3xl sm:text-5xl font-bold'>S-Bio-S</h2>
                     <p className='sm:text-xl'>
                         Smart Biogas System
