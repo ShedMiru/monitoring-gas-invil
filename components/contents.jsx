@@ -1,37 +1,56 @@
-import React from 'react'
+'use client'
+import React, { useState, useEffect } from 'react';
+import { database } from './firebaseauth';
+import { ref, onValue } from 'firebase/database';
 import Kartu from './kartu'
 import KartuGas from './kartuGas'
 
-const data = [
-    {
-        label: 'Suhu',
-        value: '45',
-        unit: '°C',
-        imgSource: '/Logo Suhu.png',
-        imgSize: '120',
-    },
-    {
-        label: 'Tekanan',
-        value: '1',
-        unit: ' Pa',
-        imgSource: '/Logo Tekanan.png',
-        imgSize: '110',
-    },
-    {
-        label: 'pH',
-        value: '5.5',
-        unit: '',
-        imgSource: '/Logo ph.png',
-        imgSize: '120',
-    }
-]
-
 const Contents = () => {
+    const [sensorData, setSensorData] = useState({
+        gas: 0,
+        kelembaban: 0,
+        suhu: 0,
+        tekanan: 0
+    });
+
+    useEffect(() => {
+        const sensorRef = ref(database, 'sensor');
+        const unsubscribe = onValue(sensorRef, (snapshot) => {
+            const data = snapshot.val();
+            setSensorData(data);
+        });
+
+        return () => unsubscribe(); // Cleanup saat komponen unmount
+    }, []);
+
+    const data = [
+        {
+            label: 'Suhu',
+            value: sensorData.suhu,
+            unit: '°C',
+            imgSource: '/Logo Suhu.png',
+            imgSize: '120',
+        },
+        {
+            label: 'Tekanan',
+            value: sensorData.tekanan,
+            unit: ' Pa',
+            imgSource: '/Logo Tekanan.png',
+            imgSize: '110',
+        },
+        {
+            label: 'Kelembaban',
+            value: sensorData.kelembaban,
+            unit: '%',
+            imgSource: '/Logo ph.png',
+            imgSize: '120',
+        }
+    ]
     return (
         <div className='grid grid-rows-[180px_1fr] sm:grid-rows-[250px_1fr] h-full w-full bg-fixed bg-center bg-cover custom-img'>
             <div className='flex gap-2 items-center'>
                 <div className='flex w-5/12 justify-center'>
-                    <KartuGas percentage={76} />
+                    <KartuGas percentage={sensorData.gas} />
                 </div>
                 <div className='grid px-10 w-7/12 justify-start'>
                     <h2 className='text-3xl sm:text-5xl font-bold'>S-Bio-S</h2>
