@@ -58,9 +58,9 @@ const Contents = () => {
             imgSize: '110',
         },
         {
-            label: 'PPM',
-            value: 0, // Misalkan tekanan sebagai PPM
-            unit: ' ppm',
+            label: 'Kelembaban',
+            value: sensorData.kelembaban,
+            unit: '%',
             imgSource: '/Logo ph.png',
             imgSize: '120',
         }
