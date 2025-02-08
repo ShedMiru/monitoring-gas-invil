@@ -22,6 +22,7 @@ const KartuGas = ({ percentage }) => {
                         width={120}
                         height={120}
                     />
+                    
                 </div>
             </div>
         </div>
