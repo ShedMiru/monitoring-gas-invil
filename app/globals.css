@@ -23,3 +23,18 @@ body {
 .custom-img {
   background-image: url('../public/background.png');
 }
+
+/* Untuk Chrome, Safari */
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Untuk Firefox */
+.scroll-hidden {
+  scrollbar-width: none;
+}
+
+/* Untuk Edge */
+.scroll-hidden::-ms-scrollbar {
+  display: none;
+}

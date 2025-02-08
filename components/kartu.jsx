@@ -22,7 +22,7 @@ export default function Kartu({ label, value, unit, imgSource, imgSize }) {
             />
           </div>
         </div>
-        <div className="bg-black m-2 rounded-full text-white text-3xl font-medium">
+        <div className="bg-black m-2 rounded-full text-white text-2xl font-medium">
           <h1>
             {value}{unit}
           </h1>

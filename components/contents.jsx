@@ -47,21 +47,28 @@ const Contents = () => {
     const data = [
         {
             label: 'Suhu',
-            value: sensorData.suhu.toFixed(2),
+            value: sensorData.suhu.toFixed(0),
             unit: ' °C',
             imgSource: '/Logo Suhu.png',
             imgSize: '120',
         },
         {
-            label: 'ppm Gas',
-            value: total_mq4.toFixed(2),
+            label: 'Gas',
+            value: total_mq4.toFixed(0),
             unit: ' ppm',
             imgSource: '/logo.png',
             imgSize: '110',
         },
         {
             label: 'Tekanan',
-            value: sensorData.kelembaban.toFixed(2),
+            value: sensorData.kelembaban.toFixed(0),
+            unit: '%',
+            imgSource: '/Logo Tekanan.png',
+            imgSize: '120',
+        },
+        {
+            label: 'Jawa',
+            value: sensorData.kelembaban.toFixed(0),
             unit: '%',
             imgSource: '/Logo Tekanan.png',
             imgSize: '120',
@@ -69,7 +76,7 @@ const Contents = () => {
     ];
 
     return (
-        <div className='grid grid-rows-[180px_1fr] sm:grid-rows-[250px_1fr] h-full w-full bg-fixed bg-center bg-cover custom-img'>
+        <div className='grid grid-rows-[180px_1fr] sm:grid-rows-[250px_1fr] h-full w-full bg-fixed bg-center bg-cover custom-img overflow-x-hidden scroll-hidden'>
             <div className='flex gap-2 items-center'>
                 <div className='flex w-5/12 justify-center'>
                     <KartuGas percentage={sensorData.ultrasonik} />
