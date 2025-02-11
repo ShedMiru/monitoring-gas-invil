@@ -16,7 +16,7 @@ const Contents = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(
-                    'https://api.thingspeak.com/channels/2833246/fields/1,2,3,4.json?results=1&api_key=HFAKF5ZH7XCRL4VO'
+                    'https://api.thingspeak.com/channels/2833246/fields/1,2,3,4,5,6.json?results=1&api_key=HFAKF5ZH7XCRL4VO'
                 );
                 const data = await response.json();
                 if (data.feeds && data.feeds.length > 0) {
@@ -27,6 +27,7 @@ const Contents = () => {
                         ultrasonik: isNaN(parseFloat(lastEntry.field3)) ? 0 : parseFloat(lastEntry.field3),
                         suhu: isNaN(parseFloat(lastEntry.field4)) ? 0 : parseFloat(lastEntry.field4),
                         kelembaban: isNaN(parseFloat(lastEntry.field5)) ? 0 : parseFloat(lastEntry.field5),
+                        tekanan: isNaN(parseFloat(lastEntry.field6)) ? 0 : parseFloat(lastEntry.field6),
                     });
                 } else {
                     console.error("Data feeds kosong.");
@@ -54,20 +55,20 @@ const Contents = () => {
         },
         {
             label: 'Gas',
-            value: total_mq4.toFixed(0),
+            value: sensorData.mq41.toFixed(1),
             unit: ' ppm',
             imgSource: '/logo.png',
             imgSize: '110',
         },
         {
             label: 'Tekanan',
-            value: sensorData.kelembaban.toFixed(0),
-            unit: '%',
+            value: sensorData.tekanan.toFixed(1),
+            unit: ' kPa',
             imgSource: '/Logo Tekanan.png',
             imgSize: '120',
         },
         {
-            label: 'Jawa',
+            label: 'Kelembaban',
             value: sensorData.kelembaban.toFixed(0),
             unit: '%',
             imgSource: '/Logo Tekanan.png',
@@ -88,11 +89,11 @@ const Contents = () => {
                     </p>
                 </div>
             </div>
-            <div className='grid gap-2 pt-5 items-center h-44 sm:h-full sm:gap-0 sm:pt-0 sm:flex mx-2 sm:items-center sm:justify-center text-center'>
+            <div className='grid gap-2 pt-5 items-center h-44 sm:h-full sm:gap-0 sm:pt-0 sm:flex mx-2 sm:justify-center text-center'>
                 {data.map((item, index) => (
                     <div
                         key={index}
-                        className='sm:w-2/3 md:1/3 px-1 md:px-6 lg:px-9 xl:px-12'
+                        className='sm:w-2/3 md:w-1/3 px-1 md:px-6 lg:px-9 xl:px-12'
                     >
                         <Kartu
                             label={item.label}
