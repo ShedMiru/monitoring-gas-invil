@@ -58,8 +58,8 @@ const Contents = () => {
             label: 'Gas',
             value: sensorData.mq41 ? sensorData.mq41.toFixed(1) : '0.0',
             unit: ' ppm',
-            imgSource: '/logo.png',
-            imgSize: '110',
+            imgSource: '/gas bnw.png',
+            imgSize: '140',
         },
         {
             label: 'Tekanan',
@@ -72,8 +72,8 @@ const Contents = () => {
             label: 'Kelembaban',
             value: sensorData.kelembaban ? sensorData.kelembaban.toFixed(0) : '0',
             unit: '%',
-            imgSource: '/Logo Tekanan.png',
-            imgSize: '120',
+            imgSource: '/kelembaban.png',
+            imgSize: '100',
         }
     ];
 
@@ -84,9 +84,11 @@ const Contents = () => {
                     <KartuGas percentage={sensorData.ultrasonik} />
                 </div>
                 <div className='grid px-10 w-7/12 justify-start text-black'>
-                    <h2 className='text-3xl sm:text-5xl font-bold'>S-Bio-S</h2>
+                    <h2 className='text-3xl sm:text-5xl font-bold'>Smart Biogas System</h2>
                     <p className='sm:text-xl'>
-                        Smart Biogas System
+                        Website monitoring S-Bio-S berbasis IoT
+                        yang memanfaatkan limbah sayur sebagai
+                        sumber energi terbarukan.
                     </p>
                 </div>
             </div>
