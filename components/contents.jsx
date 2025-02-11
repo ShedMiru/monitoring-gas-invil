@@ -79,13 +79,13 @@ const Contents = () => {
 
     return (
         <div className='grid grid-rows-[180px_1fr] sm:grid-rows-[250px_1fr] h-full w-full bg-fixed bg-center bg-cover custom-img overflow-x-hidden scroll-hidden'>
-            <div className='flex gap-2 items-center'>
+            <div className='flex items-center'>
                 <div className='flex w-5/12 justify-center'>
                     <KartuGas percentage={sensorData.ultrasonik} />
                 </div>
-                <div className='grid px-10 w-7/12 justify-start text-black'>
-                    <h2 className='text-3xl sm:text-5xl font-bold'>Smart Biogas System</h2>
-                    <p className='sm:text-xl'>
+                <div className='grid pr-3 sm:pr-10 w-7/12 justify-start text-black'>
+                    <h2 className='text-2xl sm:text-5xl font-bold'>Smart Biogas System</h2>
+                    <p className='text-sm sm:text-xl'>
                         Website monitoring S-Bio-S berbasis IoT
                         yang memanfaatkan limbah sayur sebagai
                         sumber energi terbarukan.
