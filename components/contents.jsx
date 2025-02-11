@@ -10,6 +10,7 @@ const Contents = () => {
         ultrasonik: 0,
         suhu: 0,
         kelembaban: 0,
+        tekanan: 0,
     });
 
     useEffect(() => {
@@ -22,12 +23,12 @@ const Contents = () => {
                 if (data.feeds && data.feeds.length > 0) {
                     const lastEntry = data.feeds[data.feeds.length - 1];
                     setSensorData({
-                        mq4: isNaN(parseFloat(lastEntry.field1)) ? 0 : parseFloat(lastEntry.field1),
-                        mq41: isNaN(parseFloat(lastEntry.field2)) ? 0 : parseFloat(lastEntry.field2),
-                        ultrasonik: isNaN(parseFloat(lastEntry.field3)) ? 0 : parseFloat(lastEntry.field3),
-                        suhu: isNaN(parseFloat(lastEntry.field4)) ? 0 : parseFloat(lastEntry.field4),
-                        kelembaban: isNaN(parseFloat(lastEntry.field5)) ? 0 : parseFloat(lastEntry.field5),
-                        tekanan: isNaN(parseFloat(lastEntry.field6)) ? 0 : parseFloat(lastEntry.field6),
+                        mq4: parseFloat(lastEntry.field1) || 0,
+                        mq41: parseFloat(lastEntry.field2) || 0,
+                        ultrasonik: parseFloat(lastEntry.field3) || 0,
+                        suhu: parseFloat(lastEntry.field4) || 0,
+                        kelembaban: parseFloat(lastEntry.field5) || 0,
+                        tekanan: parseFloat(lastEntry.field6) || 0,
                     });
                 } else {
                     console.error("Data feeds kosong.");
@@ -48,28 +49,28 @@ const Contents = () => {
     const data = [
         {
             label: 'Suhu',
-            value: sensorData.suhu.toFixed(0),
+            value: sensorData.suhu ? sensorData.suhu.toFixed(0) : '0',
             unit: ' °C',
             imgSource: '/Logo Suhu.png',
             imgSize: '120',
         },
         {
             label: 'Gas',
-            value: sensorData.mq41.toFixed(1),
+            value: sensorData.mq41 ? sensorData.mq41.toFixed(1) : '0.0',
             unit: ' ppm',
             imgSource: '/logo.png',
             imgSize: '110',
         },
         {
             label: 'Tekanan',
-            value: sensorData.tekanan.toFixed(1),
+            value: sensorData.tekanan ? sensorData.tekanan.toFixed(1) : '0.0',
             unit: ' kPa',
             imgSource: '/Logo Tekanan.png',
             imgSize: '120',
         },
         {
             label: 'Kelembaban',
-            value: sensorData.kelembaban.toFixed(0),
+            value: sensorData.kelembaban ? sensorData.kelembaban.toFixed(0) : '0',
             unit: '%',
             imgSource: '/Logo Tekanan.png',
             imgSize: '120',
